@@ -1,4 +1,4 @@
-# Adjusting the range of secret numbers based on difficulty, with easier difficulties having a smaller range
+# FIX: Adjusting the range of secret numbers based on difficulty, with easier difficulties having a smaller range
 def get_range_for_difficulty(difficulty: str):
     """Return (low, high) inclusive range for a given difficulty."""
     if difficulty == "Easy":
@@ -43,7 +43,7 @@ def check_guess(guess, secret):
         return "Win", "🎉 Correct!"
 
     try:
-        if guess > secret:      # Fixing reversed logic and return strings
+        if guess > secret:      # FIX: Correcting reversed logic and adjusting return strings
             return "Too High", "📉 Go LOWER!"
         else:
             return "Too Low", "📈 Go HIGHER!"

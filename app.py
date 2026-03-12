@@ -15,7 +15,7 @@ difficulty = st.sidebar.selectbox(
     index=1,
 )
 
-# Adjusting attempt limits based on difficulty, with more attempts for easier levels
+# FIX: Adjusting attempt limits based on difficulty, with more attempts for easier levels
 attempt_limit_map = {
     "Easy": 8,
     "Normal": 6,
@@ -31,8 +31,9 @@ st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
+# FIX: Initialize to 0 instead of 1
 if "attempts" not in st.session_state:
-    st.session_state.attempts = 0       # Fixed to initialize to 0 instead of 1
+    st.session_state.attempts = 0       
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -65,7 +66,7 @@ raw_guess = st.text_input(
 # Issue with Submit Guess button requires double clicks to register each guess
 col1, col2, col3 = st.columns(3)
 with col1:
-    submit = st.form_submit_button("Submit Guess 🚀")
+    submit = st.button("Submit Guess 🚀")
 with col2:
     new_game = st.button("New Game 🔁")
 with col3:
@@ -73,17 +74,17 @@ with col3:
 
 if new_game:
     st.session_state.attempts = 0
-    # Adding logic to set new secret number based on difficulty when starting a new game
+    # FIX: Adding logic to set new secret number based on difficulty when starting a new game
     if difficulty == "Easy":
         st.session_state.secret = random.randint(1, 20)
     elif difficulty == "Normal":
         st.session_state.secret = random.randint(1, 50)
     elif difficulty == "Hard":
         st.session_state.secret = random.randint(1, 100)
-    # Adding reset for score and history
+    # FIX: Adding reset for score and history
     st.session_state.score = 0
     st.session_state.history = []
-    # Resetting game status to playing, preventing game over state from blocking new game
+    # FIX: Resetting game status to playing, preventing game over state from blocking new game
     st.session_state.status = "playing"
 
     st.success("New game started.")
@@ -112,6 +113,8 @@ if submit:
         #     secret = str(st.session_state.secret)
         # else:
         #     secret = st.session_state.secret
+
+        # FIX: Removing corruption of secret value to ensure consistent game logic and passing tests
         secret = st.session_state.secret
 
         outcome, message = check_guess(guess_int, secret)
