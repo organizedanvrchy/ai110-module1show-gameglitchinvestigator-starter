@@ -68,5 +68,13 @@ I attempted removing the block of code that was intentionally casting the secret
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+
+One habit I want to carry forward is writing unit tests alongside my code rather than as an afterthought. Working with pytest on this project showed me how useful it is to have tests that directly target specific functions, and I want to get more comfortable writing those tests manually without relying on AI to generate them for me. I noticed that when I understood what a test was actually checking--like asserting `"LOWER"` is in the hint message rather than just checking the outcome label--the tests became much more meaningful and caught real bugs. Going forward, I want to invest more time in learning pytest properly so I can build full test suites on my own.
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+
+Next time, I would try to rely less on the AI to directly write or edit code for me, and instead use it more as a resource for context, insights, or syntax information. I found that when the AI wrote code directly, I sometimes didn't fully understand what it changed or why, which made it harder to verify that the fix was actually correct. Asking the AI to explain what is wrong and what I should change--rather than just applying the change--would help me stay more in control of my own code. This project made it clear that understanding the fix matters just as much as getting the fix done.
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+This project made me realize that AI-generated code is not something you can just accept and move on--it requires the same level of scrutiny as code written by anyone else, including myself. I now see AI as a tool to supplement my efficiency rather than something to fully rely on, and I am much more actively reading and understanding the code rather than letting the AI handle everything.
